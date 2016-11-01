@@ -1,0 +1,17 @@
+{
+  "name": "nodejs-console-app4",
+  "version": "0.0.0",
+  "description": "NodejsConsoleApp4",
+  "main": "app.js",
+  "engines": {
+    "node":"4.6.0"
+  },
+  "author": {
+    "name": "NiTEsH"
+  },
+  "dependencies": {
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.5"
+  }
+}
