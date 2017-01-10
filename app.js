@@ -14,7 +14,9 @@ var schema = new mongo.Schema({
     number: String,
     online: String,
     lat: String,
-    lng: String
+    lng: String,
+    password: String,
+    email: String
 });
 var Trackinfo = mongo.model('Trackeminfo', schema);
 
@@ -26,7 +28,7 @@ app.post('/', jsonParser, function (req, res) {
     console.log(req.body);
     Trackinfo.find({ number: req.body.number }, function (err, res) {
         if (res.length == 0) {
-            var first = Trackinfo({ name: req.body.who, number: req.body.number, lat: req.body.lat, lng: req.body.lng, online: 'true' }).save(function (err) {
+            var first = Trackinfo({ name: req.body.who, number: req.body.number, lat: req.body.lat, lng: req.body.lng, online: 'true', password: req.body.password, email: req.body.email }).save(function (err) {
                 if (err) throw err;
                 console.log("item saved");
             });
@@ -56,6 +58,19 @@ app.get('/offline', function (req, res) {
         res.send("offline");
     });
 });
+app.get('/confirm-login', function (req, res) {
+    var match = 0;
+    Trackinfo.find({ number: req.query.number }, function (err, res) {
+        if (res.length != 0) {
+            if (res.password == req.query.password)
+                match = 1;
+        }
+    });
+    if (match == 1)
+        res.send("matched");
+    else res.send("not matched");
+});
+
 /*
 app.get('/update', function (req, res) {
     Trackinfo.findOneAndUpdate({ number: req.query.number }, number = '1', function (err, doc) {
