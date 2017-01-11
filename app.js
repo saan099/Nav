@@ -66,7 +66,7 @@ app.post('/update', urlencodedParser, function (req, res) {
         //res.send(doc);
         //console.log(doc);
    // });
-});*/
+});
 
 app.get('/offline', function (req, res) {
     Trackinfo.findOneAndUpdate({ number: req.query.number }, number = '1', function (err, doc) {
@@ -99,7 +99,7 @@ app.get('/update', function (req, res) {
         doc.save();
         res.send(doc);
         console.log(doc);
-    });*/
+    });
 });
 
 app.get('/getinfo', function (req, res) {
@@ -109,6 +109,6 @@ app.get('/getinfo', function (req, res) {
         res.send(result);
         console.log(result);
     });
-});
+});*/
 
 app.listen(process.env.PORT || 3000);
