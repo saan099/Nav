@@ -21,10 +21,10 @@ var schema = new mongo.Schema({
 var Trackinfo = mongo.model('Trackeminfo', schema);
 
 //what?!
-/*app.get('/', function (req, res) {
+app.get('/', function (req, res) {
     res.render('home');
-});*/
-/*app.post('/', jsonParser, function (req, res) {
+});
+app.post('/', jsonParser, function (req, res) {
     console.log(req.body);
     Trackinfo.find({ number: req.body.number }, function (err, res) {
         if (res.length == 0) {
