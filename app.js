@@ -60,7 +60,7 @@ app.put('/', function (req, res) {
 });
 
 app.post('/update', jsonParser, function (req, res) {
-     /*
+     
     Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
         if (err) {
             console.log(err);
@@ -76,8 +76,8 @@ app.post('/update', jsonParser, function (req, res) {
                 });
             }
         }
-    });*/
-    
+    });
+    /*
     Trackinfo.findOneAndUpdate({ number:"9717762183" }, number = '1', function (err, doc) {
         if (err) throw err;
         doc.lat = '0000';
@@ -86,7 +86,7 @@ app.post('/update', jsonParser, function (req, res) {
         doc.save();
         res.send(doc);
         console.log(doc);
-    });
+    });*/
 });
 
 app.get('/offline', function (req, res) {
