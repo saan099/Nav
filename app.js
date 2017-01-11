@@ -6,7 +6,7 @@ var mongo = require('mongoose');
 var app = express();
 app.set('view engine', 'ejs');
 var jsonParser = bodyParser.json();
-//var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 mongo.connect('mongodb://reaper:qwerty123@ds139267.mlab.com:39267/trackemdatabase');
 
 var schema = new mongo.Schema({
@@ -24,7 +24,7 @@ var Trackinfo = mongo.model('Trackeminfo', schema);
 app.get('/', function (req, res) {
     res.render('home');
 });
-app.post('/', jsonParser, function (req, res) {
+app.post('/', urlencodedParser, function (req, res) {
     console.log(req.body);
     Trackinfo.find({ number: req.body.number }, function (err, res) {
         if (res.length == 0) {
@@ -38,7 +38,7 @@ app.post('/', jsonParser, function (req, res) {
 
 });
 
-app.post('/update', jsonParser, function (req, res) {
+app.post('/update', urlencodedParser, function (req, res) {
      
     Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
         if (err) {
