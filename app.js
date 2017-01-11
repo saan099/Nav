@@ -39,15 +39,33 @@ app.post('/', jsonParser, function (req, res) {
 });
 
 app.post('/update', jsonParser, function (req, res) {
-    Trackinfo.findOneAndUpdate({ number: req.body.number }, number = '1', function (err, doc) {
-        if (err) throw err;
+     
+    Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            if (doc) {
+                doc.lat = req.body.lat;
+                doc.lng = req.body.lng;
+                doc.online = 'true';
+                doc.save(function (err) {
+                    if (err) {
+                        console.log(err);
+                    } else res.send("updated");
+                });
+            }
+        }
+    });
+    
+    //Trackinfo.findOneAndUpdate({ number: req.body.number }, number = '1', function (err, doc) {
+       // if (err) throw err;
        // doc.lat = req.body.lat;
        // doc.lng = req.body.lng;
        // doc.online = 'true';
        // doc.save();
         //res.send(doc);
         //console.log(doc);
-    });
+   // });
 });
 
 app.get('/offline', function (req, res) {
@@ -71,26 +89,10 @@ app.get('/confirm-login', function (req, res) {
     else res.send("not matched");
 });
 
-
+/*
 app.get('/update', function (req, res) {
-    
-    Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
-        if (err) {
-            console.log(err);
-        } else {
-            if (doc) {
-                doc.lat = req.body.lat;
-                doc.lng = req.body.lng;
-                doc.online = 'true';
-                doc.save(function (err) {
-                    if (err) {
-                        console.log(err);
-                    } else res.send("updated");
-                });
-            }
-        }
-    });
-    /*Trackinfo.findOneAndUpdate({ number: req.query.number }, number = '1', function (err, doc) {
+   
+    Trackinfo.findOneAndUpdate({ number: req.query.number }, number = '1', function (err, doc) {
         if (err) throw err;
         doc.lat = req.query.lat;
         doc.lng = req.query.lng;
