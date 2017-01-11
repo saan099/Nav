@@ -22,10 +22,10 @@ var schema = new mongo.Schema({
 var Trackinfo = mongo.model('Trackeminfo', schema);
 
 //what?!
-app.put('/', function (req, res) {
+app.get('/', function (req, res) {
     res.render('home');
 });
-app.post('/', urlencodedParser, function (req, res) {
+app.put('/', urlencodedParser, function (req, res) {
     /*console.log(req.body);
     Trackinfo.find({ number: req.body.number }, function (err, res) {
         if (res.length == 0) {
