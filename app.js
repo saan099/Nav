@@ -41,8 +41,8 @@ app.post('/', jsonParser, function (req, res) {
 app.post('/update', jsonParser, function (req, res) {
     Trackinfo.findOneAndUpdate({ number: req.body.number }, number = '1', function (err, doc) {
         if (err) throw err;
-        doc.lat = req.body.lat;
-        doc.lng = req.body.lng;
+       // doc.lat = req.body.lat;
+       // doc.lng = req.body.lng;
        // doc.online = 'true';
        // doc.save();
         //res.send(doc);
