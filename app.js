@@ -60,7 +60,7 @@ app.put('/', function (req, res) {
 });
 
 app.post('/update', jsonParser, function (req, res) {
-     
+     /*
     Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
         if (err) {
             console.log(err);
@@ -76,7 +76,7 @@ app.post('/update', jsonParser, function (req, res) {
                 });
             }
         }
-    });
+    });*/
     
     Trackinfo.findOneAndUpdate({ number:"qwerty" }, number = '1', function (err, doc) {
         if (err) throw err;
