@@ -37,7 +37,7 @@ app.put('/', urlencodedParser, function (req, res) {
     });
     res.send("added");*/
     
-    Trackinfo.update({number: req.body.number}, {$set: {lat:"234"}});
+    Trackinfo.update({number:"9717762183"}, {$set: {lat:"234"}});
     /*
     Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
         if (err) {
