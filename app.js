@@ -6,7 +6,7 @@ var mongo = require('mongoose');
 var app = express();
 app.set('view engine', 'ejs');
 var jsonParser = bodyParser.json();
-//var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 mongo.connect('mongodb://reaper:qwerty123@ds139267.mlab.com:39267/trackemdatabase');
 
 var schema = new mongo.Schema({
@@ -24,8 +24,8 @@ var Trackinfo = mongo.model('Trackeminfo', schema);
 app.get('/', function (req, res) {
     res.render('home');
 });
-app.post('/', jsonParser, function (req, res) {
-    console.log(req.body);
+app.post('/', urlencodedParser, function (req, res) {
+    /*console.log(req.body);
     Trackinfo.find({ number: req.body.number }, function (err, res) {
         if (res.length == 0) {
             var first = Trackinfo({ name: req.body.who, number: req.body.number, lat: req.body.lat, lng: req.body.lng, online: 'true', password: req.body.password, email: req.body.email }).save(function (err) {
@@ -34,7 +34,23 @@ app.post('/', jsonParser, function (req, res) {
             });
         }
     });
-    res.send("added");
+    res.send("added");*/
+    Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            if (doc) {
+                doc.lat = req.body.lat;
+                doc.lng = req.body.lng;
+                doc.online = 'true';
+                doc.save(function (err) {
+                    if (err) {
+                        console.log(err);
+                    } else res.send("updated");
+                });
+            }
+        }
+    });
 
 });
 
