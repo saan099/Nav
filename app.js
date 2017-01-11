@@ -20,7 +20,7 @@ var schema = new mongo.Schema({
 });
 var Trackinfo = mongo.model('Trackeminfo', schema);
 
-
+//what?!
 app.get('/', function (req, res) {
     res.render('home');
 });
