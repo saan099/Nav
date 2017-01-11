@@ -37,7 +37,7 @@ app.put('/', function (req, res) {
     });
     res.send("added");*/
     
-    Trackinfo.update({number:"9717762183"}, {$set: {lat:"234"}});
+    Trackinfo.update({number:"qwerty"}, {$set: {number:"9717762183"}});
     /*
     Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
         if (err) {
