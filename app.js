@@ -1,5 +1,5 @@
 ﻿var express = require('express');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var mongo = require('mongoose');
 
 
@@ -39,13 +39,13 @@ app.put('/', function (req, res) {
     
     //Trackinfo.update({number:"qwerty"}, {$set: {number:"9717762183"}});
     
-    Trackinfo.findOne({ number: "qwerty" }, function (err, doc) {
+    Trackinfo.findOne({ number: "9717762183" }, function (err, doc) {
         if (err) {
             console.log(err);
         } else {
             if (doc) {
-                doc.lat = '111';
-                doc.lng = '111';
+                doc.lat = '00000';
+                doc.lng = '00000';
                 doc.online = 'true';
                 doc.save(function (err) {
                     if (err) {
@@ -78,10 +78,10 @@ app.post('/update', jsonParser, function (req, res) {
         }
     });*/
     
-    Trackinfo.findOneAndUpdate({ number:"qwerty" }, number = '1', function (err, doc) {
+    Trackinfo.findOneAndUpdate({ number:"9717762183" }, number = '1', function (err, doc) {
         if (err) throw err;
-        doc.lat = '12345';
-        doc.lng = '1erty';
+        doc.lat = '0000';
+        doc.lng = '0000';
         doc.online = 'true';
         doc.save();
         res.send(doc);
