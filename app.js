@@ -38,7 +38,7 @@ app.post('/', jsonParser, function (req, res) {
 
 });
 
-app.post('/update', urlencodedParser, function (req, res) {
+app.post('/update', jsonParser, function (req, res) {
      
     Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
         if (err) {
