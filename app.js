@@ -37,7 +37,7 @@ app.post('/', jsonParser, function (req, res) {
     res.send("added");
 
 });
-
+/*
 app.post('/update', urlencodedParser, function (req, res) {
      
     Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
@@ -66,7 +66,7 @@ app.post('/update', urlencodedParser, function (req, res) {
         //res.send(doc);
         //console.log(doc);
    // });
-});
+});*/
 
 app.get('/offline', function (req, res) {
     Trackinfo.findOneAndUpdate({ number: req.query.number }, number = '1', function (err, doc) {
