@@ -87,7 +87,7 @@ app.get('/confirm-login', function (req, res) {
     if (match == 1)
         res.send("matched");
     else res.send("not matched");
-});
+});*/
 
 /*
 app.get('/update', function (req, res) {
@@ -100,7 +100,7 @@ app.get('/update', function (req, res) {
         res.send(doc);
         console.log(doc);
     });
-});
+});*/
 
 app.get('/getinfo', function (req, res) {
 
@@ -109,6 +109,6 @@ app.get('/getinfo', function (req, res) {
         res.send(result);
         console.log(result);
     });
-});*/
+});
 
 app.listen(process.env.PORT || 3000);
