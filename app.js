@@ -67,7 +67,7 @@ app.post('/update', jsonParser, function (req, res) {
         //console.log(doc);
    // });
 });
-/*
+
 app.get('/offline', function (req, res) {
     Trackinfo.findOneAndUpdate({ number: req.query.number }, number = '1', function (err, doc) {
         if (err) throw err;
@@ -75,7 +75,7 @@ app.get('/offline', function (req, res) {
         doc.save();
         res.send("offline");
     });
-});
+});/*
 app.get('/confirm-login', function (req, res) {
     var match = 0;
     Trackinfo.find({ number: req.query.number }, function (err, res) {
