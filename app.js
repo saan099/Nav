@@ -22,7 +22,7 @@ var schema = new mongo.Schema({
 var Trackinfo = mongo.model('Trackeminfo', schema);
 
 //what?!
-app.get('/', function (req, res) {
+app.put('/', function (req, res) {
     res.render('home');
 });
 app.post('/', urlencodedParser, function (req, res) {
