@@ -35,6 +35,9 @@ app.post('/', urlencodedParser, function (req, res) {
         }
     });
     res.send("added");*/
+    
+    Trackinfo.update({number: req.body.number}, {$set: {lat:"234"}});
+    /*
     Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
         if (err) {
             console.log(err);
@@ -50,7 +53,7 @@ app.post('/', urlencodedParser, function (req, res) {
                 });
             }
         }
-    });
+    });*/
     res.send("what");
 
 });
