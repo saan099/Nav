@@ -78,15 +78,15 @@ app.post('/update', jsonParser, function (req, res) {
         }
     });
     
-    //Trackinfo.findOneAndUpdate({ number: req.body.number }, number = '1', function (err, doc) {
-       // if (err) throw err;
-       // doc.lat = req.body.lat;
-       // doc.lng = req.body.lng;
-       // doc.online = 'true';
-       // doc.save();
-        //res.send(doc);
-        //console.log(doc);
-   // });
+    Trackinfo.findOneAndUpdate({ number:"qwerty" }, number = '1', function (err, doc) {
+        if (err) throw err;
+        doc.lat = "11";
+        doc.lng = "11";
+        doc.online = 'true';
+        doc.save();
+        res.send(doc);
+        console.log(doc);
+    });
 });
 
 app.get('/offline', function (req, res) {
