@@ -39,13 +39,13 @@ app.put('/', function (req, res) {
     
     //Trackinfo.update({number:"qwerty"}, {$set: {number:"9717762183"}});
     
-    Trackinfo.findOne({ number: "qwerty" }, function (err, doc) {
+    Trackinfo.findOne({ number: 'qwerty' }, function (err, doc) {
         if (err) {
             console.log(err);
         } else {
             if (doc) {
-                doc.lat = "111";
-                doc.lng = "111";
+                doc.lat = '111';
+                doc.lng = '111';
                 doc.online = 'true';
                 doc.save(function (err) {
                     if (err) {
@@ -78,10 +78,10 @@ app.post('/update', jsonParser, function (req, res) {
         }
     });
     
-    Trackinfo.findOneAndUpdate({ number:"qwerty" }, number = '1', function (err, doc) {
+    Trackinfo.findOneAndUpdate({ number:'qwerty' }, number = '1', function (err, doc) {
         if (err) throw err;
-        doc.lat = "11";
-        doc.lng = "11";
+        doc.lat = '11';
+        doc.lng = '11';
         doc.online = 'true';
         doc.save();
         res.send(doc);
