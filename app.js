@@ -8,6 +8,7 @@ app.set('view engine', 'ejs');
 var jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 mongo.connect('mongodb://reaper:qwerty123@ds139267.mlab.com:39267/trackemdatabase');
+app.use(express.methodOverride());
 
 var schema = new mongo.Schema({
     name: String,
