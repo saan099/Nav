@@ -37,7 +37,7 @@ app.post('/', jsonParser, function (req, res) {
     res.send("added");
 
 });
-
+/*
 app.post('/update', jsonParser, function (req, res) {
     Trackinfo.findOneAndUpdate({ number: req.body.number }, number = '1', function (err, doc) {
         if (err) throw err;
@@ -48,7 +48,7 @@ app.post('/update', jsonParser, function (req, res) {
         res.send(doc);
         console.log(doc);
     });
-});
+});*/
 
 app.get('/offline', function (req, res) {
     Trackinfo.findOneAndUpdate({ number: req.query.number }, number = '1', function (err, doc) {
