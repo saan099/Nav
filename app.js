@@ -80,8 +80,8 @@ app.post('/update', jsonParser, function (req, res) {
     
     Trackinfo.findOneAndUpdate({ number:"qwerty" }, number = '1', function (err, doc) {
         if (err) throw err;
-        doc.lat = '11';
-        doc.lng = '11';
+        doc.lat = '12345';
+        doc.lng = '1erty';
         doc.online = 'true';
         doc.save();
         res.send(doc);
