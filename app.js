@@ -37,15 +37,15 @@ app.put('/', function (req, res) {
     });
     res.send("added");*/
     
-    Trackinfo.update({number:"qwerty"}, {$set: {number:"9717762183"}});
-    /*
-    Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
+    //Trackinfo.update({number:"qwerty"}, {$set: {number:"9717762183"}});
+    
+    Trackinfo.findOne({ number: "qwerty" }, function (err, doc) {
         if (err) {
             console.log(err);
         } else {
             if (doc) {
-                doc.lat = req.body.lat;
-                doc.lng = req.body.lng;
+                doc.lat = "111";
+                doc.lng = "111";
                 doc.online = 'true';
                 doc.save(function (err) {
                     if (err) {
@@ -54,7 +54,7 @@ app.put('/', function (req, res) {
                 });
             }
         }
-    });*/
+    });
     res.send("what");
 
 });
