@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
     res.render('home');
 });
 app.put('/', function (req, res) {
-    /*console.log(req.body);
+    console.log(req.body);
     Trackinfo.find({ number: req.body.number }, function (err, res) {
         if (res.length == 0) {
             var first = Trackinfo({ name: req.body.who, number: req.body.number, lat: req.body.lat, lng: req.body.lng, online: 'true', password: req.body.password, email: req.body.email }).save(function (err) {
@@ -35,10 +35,10 @@ app.put('/', function (req, res) {
             });
         }
     });
-    res.send("added");*/
+    res.send("added");
     
     //Trackinfo.update({number:"qwerty"}, {$set: {number:"9717762183"}});
-    
+    /*
     Trackinfo.findOne({ number: "9717762183" }, function (err, doc) {
         if (err) {
             console.log(err);
@@ -54,7 +54,7 @@ app.put('/', function (req, res) {
                 });
             }
         }
-    });
+    });*/
     res.send("what");
 
 });
