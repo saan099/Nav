@@ -25,7 +25,7 @@ var Trackinfo = mongo.model('Trackeminfo', schema);
 app.get('/', function (req, res) {
     res.render('home');
 });
-app.put('/', function (req, res) {
+app.post('/', function (req, res) {
     console.log(req.body);
     Trackinfo.find({ number: req.body.number }, function (err, res) {
         if (res.length == 0) {
