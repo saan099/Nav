@@ -29,7 +29,7 @@ app.post('/', function (req, res) {
     console.log(req.body);
     Trackinfo.find({ number: req.body.number }, function (err, res) {
         if (res.length == 0) {
-            var first = Trackinfo({ name: req.body.who, number: req.body.number, lat: req.body.lat, lng: req.body.lng, online: 'true', password: req.body.password, email: req.body.email }).save(function (err) {
+            var first = Trackinfo({ name: req.body.who, number: req.body.number, lat: '0', lng:'0', online: 'true', password: req.body.password, email: req.body.email }).save(function (err) {
                 if (err) throw err;
                 console.log("item saved");
             });
