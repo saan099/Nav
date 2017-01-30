@@ -96,7 +96,8 @@ app.get('/offline', function (req, res) {
         doc.save();
         res.send("offline");
     });
-});/*
+});
+/*
 app.get('/confirm-login', function (req, res) {
     var match = 0;
     Trackinfo.find({ number: req.query.number }, function (err, res) {
