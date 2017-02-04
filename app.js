@@ -103,12 +103,11 @@ app.get('/confirm-login', function (req, res) {
     Trackinfo.find({ number: req.query.number }, function (err, res) {
         if (res.length != 0) {
             if (res.password == req.query.password)
-                match = 1;
-        }
+               res.send("matched");
+            else res.send("password not matched");
+        }else res.send("no result");
     });
-    if (match == 1)
-        res.send("matched");
-    else res.send("not matched");
+
 });
 
 /*
