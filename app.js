@@ -101,6 +101,8 @@ app.get('/offline', function (req, res) {
 app.get('/confirm-login', function (req, res) {
     var match = 0;
     Trackinfo.find({ number: req.query.number }, function (err, res) {
+        
+        if (err)throw err;
         if (res.length != 0) {
             if (res.password == req.query.password)
                res.send("matched");
