@@ -100,13 +100,13 @@ app.get('/offline', function (req, res) {
 
 app.get('/confirm-login', function (req, response) {
     var match = 0;
-    Trackinfo.find({ number: req.query.number }, function (err, res) {
+    Trackinfo.find({ number: req.query.number, password:req.query.password }, function (err, res) {
         response.send(res.number);
         if (err) throw err;
         if (res.length != 0) {
-            if (res.password =="qwerty")
+            //if (res.password =="qwerty")
                response.send("matched");
-            else response.send(res.password);
+            //else response.send(res.password);
         }else response.send("no result");
     });
 
