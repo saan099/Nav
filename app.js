@@ -103,7 +103,7 @@ app.get('/confirm-login', function (req, response) {
     Trackinfo.find({ number: req.query.number }, function (err, res) {
         var jsonRes=JSON.parse(res);
         
-        response.send(jsonRes.password);
+        response.send(jsonRes);
         if (err) throw err;
         if (res.length != 0) {
             //if (res.password =="qwerty")
