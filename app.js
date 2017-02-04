@@ -101,7 +101,7 @@ app.get('/offline', function (req, res) {
 app.get('/confirm-login', function (req, response) {
     var match = 0;
     Trackinfo.find({ number: req.query.number }, function (err, res) {
-        response.send(res);
+        response.send(res.number);
         if (err) throw err;
         if (res.length != 0) {
             if (res.password =="qwerty")
