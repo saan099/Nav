@@ -98,16 +98,16 @@ app.get('/offline', function (req, res) {
     });
 });
 
-app.get('/confirm-login', function (req, res) {
+app.get('/confirm-login', function (req, resonse) {
     var match = 0;
     Trackinfo.find({ number: req.query.number }, function (err, res) {
         
         if (err)throw err;
         if (res.length != 0) {
             if (res.password == req.query.password)
-               res.send("matched");
-            else res.send("password not matched");
-        }else res.send("no result");
+               response.send("matched");
+            else response.send("password not matched");
+        }else response.send("no result");
     });
 
 });
