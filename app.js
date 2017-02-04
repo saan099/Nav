@@ -100,8 +100,10 @@ app.get('/offline', function (req, res) {
 
 app.get('/confirm-login', function (req, response) {
     var match = 0;
-    Trackinfo.find({ number: req.query.number, password:req.query.password }, function (err, res) {
-        response.send(res.number);
+    Trackinfo.find({ number: req.query.number }, function (err, res) {
+        var jsonRes=JSON.parse(res);
+        
+        response.send(jsonRes.password);
         if (err) throw err;
         if (res.length != 0) {
             //if (res.password =="qwerty")
