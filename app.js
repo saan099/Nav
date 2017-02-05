@@ -106,9 +106,9 @@ app.get('/confirm-login', function (req, response) {
         //response.send(res[0]);
         if (err) throw err;
         if (res.length != 0) {
-            if (res[0].password =="qwerty")
+            if (res[0].password ==req.query.password)
                response.send("matched");
-            else response.send(res.password);
+            else response.send("not matched");
         }else response.send("no result");
     });
 
