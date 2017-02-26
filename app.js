@@ -126,24 +126,7 @@ app.get('/update', function (req, res) {
         console.log(doc);
     });
 });*/
-app.post('/editprofile',jsonParser,function(req, res) {
-     
-    Trackinfo.findOne({ number: req.body.number }, function (err, doc) {
-        if (err) {
-            console.log(err);
-        } else {
-            if (doc) {
-                doc.name = req.body.who;
-                doc.email = req.body.email;
-                doc.number = req.body.number;
-                doc.save(function (err) {
-                    if (err) {
-                        console.log(err);
-                    } else res.send("updated");
-                });
-            }
-        }
-});
+
     //
 
 app.get('/getinfo', function (req, res) {
