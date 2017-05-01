@@ -91,12 +91,14 @@ app.post('/update', jsonParser, function (req, res) {
 
 app.get('/checkFriend',function(req,res){
     Trackinfo.find({number: req.query.number}).toArray(function(err,result){
+        console.log(result);
         if (result.length!=null&&result.length!=0){
             res.send('valid');
         } else {
             res.send('not valid');
         }
     });
+    console.log('end');
 });
 
 app.get('/offline', function (req, res) {
