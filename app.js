@@ -90,7 +90,7 @@ app.post('/update', jsonParser, function (req, res) {
 });
 
 app.get('/checkFriend',function(req,res){
-    Trackinfo.find({number: req.query.number}).toArray(function(err,result){
+    Trackinfo.find({number: req.query.number},function(err,result){
         console.log(result);
         if (result.length!=null&&result.length!=0){
             res.send('valid');
