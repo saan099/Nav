@@ -21,7 +21,7 @@ var schema = new mongo.Schema({
 });
 var Trackinfo = mongo.model('Trackeminfo', schema);
 
-//what?!
+
 app.get('/', function (req, res) {
     res.render('home');
 });
@@ -87,6 +87,16 @@ app.post('/update', jsonParser, function (req, res) {
         res.send(doc);
         console.log(doc);
     });*/
+});
+
+app.get('/checkFriend',function(req,res){
+    Trackinfo.find({number: req.query.number}).toArray(function(err,result){
+        if (result.length!=null&&result.length!=0){
+            res.send('valid');
+        } else {
+            res.send('not valid');
+        }
+    });
 });
 
 app.get('/offline', function (req, res) {
